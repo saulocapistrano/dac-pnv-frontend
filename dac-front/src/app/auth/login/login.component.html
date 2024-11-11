@@ -1,1 +1,15 @@
-<p>login works!</p>
+<!-- src/app/auth/login/login.component.html -->
+<div class="login-container">
+  <h2>Login</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div class="p-field">
+      <label for="email">Email</label>
+      <input type="email" pInputText id="email" [(ngModel)]="credentials.email" name="email" required />
+    </div>
+    <div class="p-field">
+      <label for="password">Password</label>
+      <input type="password" pInputText id="password" [(ngModel)]="credentials.password" name="password" required />
+    </div>
+    <button pButton type="submit" label="Login"></button>
+  </form>
+</div>
