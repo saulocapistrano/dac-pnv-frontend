@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "dac-front": {
+    "pdv-eletronico": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -15,24 +15,24 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/dac-front",
+            "outputPath": "dist/pdv-eletronico",
             "index": "src/index.html",
-            "browser": "src/main.ts",
+            "main": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
+              "src/favicon.ico",
+              "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+              "node_modules/bootstrap-icons/font/bootstrap-icons.css"  // Se você ainda precisar dos ícones do Bootstrap
             ],
             "scripts": []
           },
@@ -41,21 +41,36 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kB",
-                  "maximumError": "4kB"
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "styles": [
+                "src/styles.scss",
+                "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+                "node_modules/bootstrap-icons/font/bootstrap-icons.css"
+              ],
+              "scripts": []
             },
             "development": {
+              "buildOptimizer": false,
               "optimization": false,
+              "vendorChunk": true,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "namedChunks": true,
+              "styles": [
+                "src/styles.scss",
+                "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+                "node_modules/bootstrap-icons/font/bootstrap-icons.css"
+              ],
+              "scripts": []
             }
           },
           "defaultConfiguration": "production"
@@ -64,16 +79,19 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "dac-front:build:production"
+              "browserTarget": "pdv-eletronico:build:production"
             },
             "development": {
-              "buildTarget": "dac-front:build:development"
+              "browserTarget": "pdv-eletronico:build:development"
             }
           },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n"
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "pdv-eletronico:build"
+          }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
@@ -85,13 +103,12 @@
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
+              "src/favicon.ico",
+              "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
             ],
             "scripts": []
           }
@@ -100,6 +117,6 @@
     }
   },
   "cli": {
-    "analytics": "bc541885-256e-4d11-9c1e-ba7ea7ca165f"
+    "analytics": "f34576a8-84f5-461d-a5cd-a9ade925668c"
   }
 }

@@ -1,0 +1,40 @@
+<aside class="sidebar" [class.collapsed]="isCollapsed">
+  <div class="sidebar-header">
+    <i class="bi bi-person-circle avatar-icon"></i>
+    <span class="username">Usuário Atual</span>
+  </div>
+
+  <button class="hamburger" (click)="toggleSidebar()">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <nav class="menu">
+    <ul>
+      <li>
+        <a routerLink="/clientes">
+          <i class="fas fa-users"></i>
+          <span class="menu-text">Clientes</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/fornecedores">
+          <i class="fas fa-truck"></i>
+          <span class="menu-text">Veículos</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/produtos">
+          <i class="fas fa-box"></i>
+          <span class="menu-text">Serviços</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="logout">
+    <a href="#">
+      <i class="fas fa-sign-out-alt"></i>
+      <span class="menu-text">Logout</span>
+    </a>
+  </div>
+</aside>

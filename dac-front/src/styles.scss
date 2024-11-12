@@ -1,4 +1,27 @@
-// src/styles.scss
-@import "~primeng/resources/themes/saga-blue/theme.css";
-@import "~primeng/resources/primeng.min.css";
-@import "~primeicons/primeicons.css";
+@import 'styles/variables';
+
+body {
+  background-color: $background-color;
+  font-family: 'Arial', sans-serif;
+  color: $text-color;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $primary-color;
+  margin: 0;
+  padding: 0.5rem;
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+  &:hover {
+    color: $accent-color;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
