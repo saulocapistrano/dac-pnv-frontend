@@ -1,0 +1,35 @@
+@import 'src/styles/variables';
+
+.footer {
+  background-color: $primary-color;
+  color: #FFFFFF;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: calc(100% - #{$sidebar-width});
+  margin-left: $sidebar-width;
+  height: $footer-height;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+
+    .footer-left,
+    .footer-right {
+      font-size: 14px;
+    }
+
+    .footer-right {
+      p {
+        margin: 0;
+      }
+    }
+  }
+}

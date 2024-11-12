@@ -1,0 +1,29 @@
+.grid.login-container {
+  background-image: url('../../../assets/loginhome.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-card {
+  width: 350px;
+  padding: 2rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+@media screen and (max-width: 768px) {
+  .login-card {
+    width: 90%;
+  }
+}

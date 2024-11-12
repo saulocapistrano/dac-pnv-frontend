@@ -1,0 +1,61 @@
+@import 'src/styles/variables';
+
+:root {
+  --blue-1: #2242c2;
+  --blue-2: #0368ec;
+  --white: #fff;
+  --grey-1: #ededed;
+  --shadow-dark: rgba(0, 0, 0, 0.3);
+  --shadow-light: rgba(255, 255, 255, 0.277);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  background-color: var(--blue-1);
+}
+
+.main-layout {
+  display: flex;
+  flex: 1;
+  min-height: calc(100vh - 60px);
+
+  .main-content {
+    flex: 1;
+    padding: 20px;
+    background-color: $background-color;
+  }
+
+  .content {
+    margin-left: 250px;
+    padding: 20px;
+    flex: 1;
+
+    @media screen and (max-width: 768px) {
+      margin-left: 80px;
+    }
+  }
+}
+
+footer {
+  background-color: $primary-color;
+  color: $text-color;
+  text-align: center;
+  padding: 10px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}

@@ -1,15 +1,46 @@
-<!-- src/app/auth/login/login.component.html -->
-<div class="login-container">
-  <h2>Login</h2>
-  <form (ngSubmit)="onSubmit()">
-    <div class="p-field">
-      <label for="email">Email</label>
-      <input type="email" pInputText id="email" [(ngModel)]="credentials.email" name="email" required />
+<div class="grid">
+  <div class="col-12">
+    <div class="flex justify-content-center align-content-center text-align-center">
+      <!-- Formulário de Login -->
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmitLoginForm()">
+        <p-card styleClass="mt-10 login-card" header="Login" subheader="Log in" *ngIf="loginCard">
+          <div class="flex justify-content-center align-content-center text-align-center">
+            <input type="email" pInputText placeholder="Email" formControlName="email">
+          </div>
+          <div class="flex justify-content-center align-content-center text-align-center mt-3">
+            <input type="password" pInputText placeholder="Password" formControlName="password">
+          </div>
+          <div class="card flex justify-content-center mt-3">
+            <button type="submit" pButton pRipple label="Login" [disabled]="!loginForm.valid"></button>
+          </div>
+          <span class="flex justify-content-center align-content-center text-align-center mt-3 text-red-600 font-semibold"
+            style="cursor: pointer;" (click)="loginCard = !loginCard">
+            Create Account
+          </span>
+        </p-card>
+      </form>
+
+      <!-- Formulário de Cadastro -->
+      <form [formGroup]="loginFormRegister" (ngSubmit)="onSubmitLoginFormRegister()">
+        <p-card styleClass="mt-10 login-card" header="Criar Conta" subheader="Create our free account" *ngIf="!loginCard">
+          <div class="flex justify-content-center align-content-center text-align-center">
+            <input type="text" pInputText placeholder="Name" formControlName="name">
+          </div>
+          <div class="flex justify-content-center align-content-center text-align-center mt-3">
+            <input type="email" pInputText placeholder="Email" formControlName="email">
+          </div>
+          <div class="flex justify-content-center align-content-center text-align-center mt-3">
+            <input type="password" pInputText placeholder="Password" formControlName="password">
+          </div>
+          <div class="card flex justify-content-center mt-3">
+            <button type="submit" pButton pRipple label="Create Account" [disabled]="!loginFormRegister.valid"></button>
+          </div>
+          <span class="flex justify-content-center align-content-center text-align-center mt-3 text-red-600 font-semibold"
+            style="cursor: pointer;" (click)="loginCard = !loginCard">
+            Log In
+          </span>
+        </p-card>
+      </form>
     </div>
-    <div class="p-field">
-      <label for="password">Password</label>
-      <input type="password" pInputText id="password" [(ngModel)]="credentials.password" name="password" required />
-    </div>
-    <button pButton type="submit" label="Login"></button>
-  </form>
+  </div>
 </div>
